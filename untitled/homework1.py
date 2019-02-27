@@ -14,11 +14,11 @@ def get_item_info(url):
 # price = soup.select('div.infocard__container__item__main > span')
 # date = soup.select('div.detail-title__info > div:nth-of-type(1)')
 # area = soup.select('div.infocard__container__item__main > a')
-
+    # basicinfo > div.infocard__container.haveswitch > div:nth-child(1) > div.infocard__container__item__main > span
     data = {
         'title':soup.title.text,
-        'price':soup.select('div.infocard__container__item__main > span')[0].text,
-        'date':soup.select('div.detail-title__info > div:nth-of-type(1)')[0].text,
+        'price':soup.select('#basicinfo span.infocard__container__item__main__text--price')[0].text,
+        'date':soup.select('div.detail-title__info > div:nth-of-type(1)').text,
         'area':list(soup.select('div.infocard__container__item__main > a')[0].stripped_strings)
         }
     print(data)
